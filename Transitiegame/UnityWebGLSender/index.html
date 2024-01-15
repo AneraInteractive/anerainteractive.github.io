@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="..\css/styleGame.css">
   </head>
+  <header>
+    <h2>TransitieGame Admin</h2>
+  </header>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
@@ -19,7 +22,7 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
+        <!-- <div id="unity-webgl-logo"></div> -->
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">SustainabilityGame_3D</div>
       </div>
@@ -118,7 +121,6 @@
       };
       document.body.appendChild(script);
     </script>
-    <div id="test"> HALLO </div>
     <script>
       window.addEventListener('message', OnPresentationWindowLoaded, false);
     
@@ -135,7 +137,7 @@
         msg = pMsg;
         if(!ReceiverWindow){
           console.log("Receiver window undefined");
-          ReceiverWindow = window.open("https://deepthoughtxlii.github.io/UnityWebGLReceiver/index.html");
+          ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
           console.log("opened new window: " + ReceiverWindow);
         }else{
           console.log("Receiver Window already open. Message Posting...")
@@ -145,7 +147,7 @@
     
       function Post(){
         console.log(msg);
-        ReceiverWindow.postMessage(msg, "https://deepthoughtxlii.github.io/UnityWebGLReceiver/index.html");
+        ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
         console.log("Sent message " + msg);
         // document.getElementById("log").innerText = "";
         // document.getElementById("log").innerText = msg;

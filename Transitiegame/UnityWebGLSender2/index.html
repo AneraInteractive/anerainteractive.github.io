@@ -133,7 +133,7 @@
         msg = pMsg;
         if(!ReceiverWindow){
           console.log("Receiver window undefined");
-          ReceiverWindow = window.open("https://deepthoughtxlii.github.io/UnityWebGLReceiver2/index.html");
+          ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
           console.log("opened new window: " + ReceiverWindow);
         }else{
           console.log("Receiver Window already open. Message Posting...")
@@ -143,7 +143,7 @@
     
       function Post(){
         console.log(msg);
-        ReceiverWindow.postMessage(msg, "https://deepthoughtxlii.github.io/UnityWebGLReceiver2/index.html");
+        ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
         console.log("Sent message " + msg);
         // document.getElementById("log").innerText = "";
         // document.getElementById("log").innerText = msg;

@@ -123,13 +123,13 @@
     
       function ReceiveMessage(msg){
         console.log("sending message" + msg);
-        window.opener.postMessage("done", "https://deepthoughtxlii.github.io/UnityWebGLSender/index.html");
+        window.opener.postMessage("done", "https://anerainteractive.github.io/UnityWebGLSender/index.html");
       }
       
       //receives data from the other window and forwards it into unity build
       function messageListener(event) {
         console.log("received message" + event.data);
-        if (event.origin === "https://deepthoughtxlii.github.io") {
+        if (event.origin === "https://anerainteractive.github.io") {
           if(hasJsonStructure(event.data)){
             SendData('InputManager', 'ReceivePacket', event.data);
           }

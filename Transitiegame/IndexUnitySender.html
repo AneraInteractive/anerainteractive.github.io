@@ -17,7 +17,7 @@
   function OpenReceiverWindow(){
     if(!ReceiverWindow){
       console.log("Receiver window undefined");
-      ReceiverWindow = window.open("https://deepthoughtxlii.github.io/UnityWebGLReceiver/index.html");
+      ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
       console.log("opened new window: " + ReceiverWindow);
       windowReady = true;
     }
@@ -33,7 +33,7 @@
 
   function Post(){
     console.log(msg);
-    ReceiverWindow.postMessage(msg, "https://deepthoughtxlii.github.io/UnityWebGLReceiver/index.html");
+    ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
     console.log("Sent message " + msg);
     // document.getElementById("log").innerText = "";
     // document.getElementById("log").innerText = msg;
