@@ -9,9 +9,17 @@
     <link rel="stylesheet" href="..\css/styleGame.css">
   </head>
   <header>
-    <h2>TransitieGame Admin</h2>
+    <header>
+      <div id="headerTitle">
+        <h2>TransitieGame Admin</h2>
+      </div>
+      <div id="headerButton">
+        <button id="openWindowButton" onclick="OpenReceiverWindow()">Open PresentationGame</button>
+      </div>
+    </header>
   </header>
   <body>
+    <div id=gameContainer class="hidden">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -60,11 +68,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/UnityWebGLSender2.loader.js";
+      var loaderUrl = buildUrl + "/UnityWebGLSender.loader.js";
       var config = {
-        dataUrl: buildUrl + "/UnityWebGLSender2.data",
-        frameworkUrl: buildUrl + "/UnityWebGLSender2.framework.js",
-        codeUrl: buildUrl + "/UnityWebGLSender2.wasm",
+        dataUrl: buildUrl + "/UnityWebGLSender.data",
+        frameworkUrl: buildUrl + "/UnityWebGLSender.framework.js",
+        codeUrl: buildUrl + "/UnityWebGLSender.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Anera Interactive",
         productName: "SustainabilityGame_3D",
@@ -131,18 +139,25 @@
         console.log("received message " + event.data);
         Post();
       }
-    
-      //
-      function ReceiveMessage(pMsg){
-        msg = pMsg;
+
+      function OpenReceiverWindow(){
         if(!ReceiverWindow){
           console.log("Receiver window undefined");
           ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
           console.log("opened new window: " + ReceiverWindow);
         }else{
           console.log("Receiver Window already open. Message Posting...")
-            Post();
         }
+        var body = document.getElementById("gameContainer");
+        body.classList.remove("hidden");
+        var header = document.getElementById("openWindowButton");
+        header.classList.add("gone");
+      }
+    
+      //
+      function ReceiveMessage(pMsg){
+        msg = pMsg;
+        Post();
       }
     
       function Post(){
@@ -153,5 +168,5 @@
         // document.getElementById("log").innerText = msg;
       }
     </script>
-  </body>
+ 
 </html>

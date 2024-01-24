@@ -1,6 +1,7 @@
 
 <span onclick="OpenReceiverWindow()">open new window</span>
 <script>
+  //listens to message that connection is established
   window.addEventListener('message', OnPresentationWindowLoaded, false);
 
 
@@ -9,11 +10,13 @@
   var msg = "no message";
   var windowReady = false;
 
+  //receives message that connection to presentation window has been achieved
   function OnPresentationWindowLoaded(){
     console.log("received message " + event.data);
     Post();
   }
 
+  //opens the presentation window
   function OpenReceiverWindow(){
     if(!ReceiverWindow){
       console.log("Receiver window undefined");
@@ -23,7 +26,7 @@
     }
   }
 
-  //
+  //receives message from the unity build
   function ReceiveMessage(pMsg){
     msg = pMsg;
     if(windowReady){
@@ -31,6 +34,7 @@
     }
   }
 
+  //posts message to presentation window
   function Post(){
     console.log(msg);
     ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver/index.html");

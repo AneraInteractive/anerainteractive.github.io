@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | SustainabilityGame_3D</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | SustainabilityGame_3D</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <link rel="stylesheet" href="..\css/styleGame.css">
+</head>
+<header>
+  <h2>TransitieGame Presentation</h2>
+</header>
+
+<body>
+  <div id=gameContainer>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -18,11 +25,12 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
+        <!-- <div id="unity-webgl-logo"></div> -->
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">SustainabilityGame_3D</div>
       </div>
     </div>
+  </body>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -47,7 +55,7 @@
         if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
           if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -117,46 +125,50 @@
       };
       document.body.appendChild(script);
     </script>
+
+
     <script>
       window.addEventListener('message', messageListener, false);
-      
-    
-      function ReceiveMessage(msg){
+
+
+      function ReceiveMessage(msg) {
         console.log("sending message" + msg);
-        window.opener.postMessage("done", "https://anerainteractive.github.io/UnityWebGLSender2/index.html");
+        window.opener.postMessage("done", "https://anerainteractive.github.io/UnityWebGLSender/index.html");
       }
+
       
       //receives data from the other window and forwards it into unity build
       function messageListener(event) {
         console.log("received message" + event.data);
         if (event.origin === "https://anerainteractive.github.io") {
-          if(hasJsonStructure(event.data)){
+          if (hasJsonStructure(event.data)) {
             SendData('InputManager', 'ReceivePacket', event.data);
           }
-        }else{
+        } else {
           console.log("wrong address" + event.origin);
         }
       }
-    
-    
-      
+
+
+
       //returns true if string is a JSON object and false for everything else
       function hasJsonStructure(str) {
         if (typeof str !== 'string') return false;
         try {
-            const result = JSON.parse(str);
-            const type = Object.prototype.toString.call(result);
-            return type === '[object Object]' 
-                || type === '[object Array]';
+          const result = JSON.parse(str);
+          const type = Object.prototype.toString.call(result);
+          return type === '[object Object]'
+            || type === '[object Array]';
         } catch (err) {
-            return false;
+          return false;
         }
-    }
-    
+      }
+
       //SENDING DATA TO UNITY BUILD
-      function SendData(object, functionName, parameter){
+      function SendData(object, functionName, parameter) {
         unityGame.SendMessage(object, functionName, parameter);
       }
-      </script>
-  </body>
+    </script>
+
+
 </html>

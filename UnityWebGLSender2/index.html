@@ -6,8 +6,20 @@
     <title>Unity WebGL Player | SustainabilityGame_3D</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="..\css/styleGame.css">
   </head>
+  <header>
+    <header>
+      <div id="headerTitle">
+        <h2>TransitieGame Admin</h2>
+      </div>
+      <div id="headerButton">
+        <button id="openWindowButton" onclick="OpenReceiverWindow()">Open PresentationGame</button>
+      </div>
+    </header>
+  </header>
   <body>
+    <div id=gameContainer class="hidden">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -18,7 +30,7 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
+        <!-- <div id="unity-webgl-logo"></div> -->
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">SustainabilityGame_3D</div>
       </div>
@@ -117,6 +129,12 @@
       };
       document.body.appendChild(script);
     </script>
+
+
+
+
+
+    
     <script>
       window.addEventListener('message', OnPresentationWindowLoaded, false);
     
@@ -127,27 +145,34 @@
         console.log("received message " + event.data);
         Post();
       }
+
+      function OpenReceiverWindow(){
+        if(!ReceiverWindow){
+          console.log("Receiver window undefined");
+          ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
+          console.log("opened new window: " + ReceiverWindow);
+        }else{
+          console.log("Receiver Window already open. Message Posting...")
+        }
+        var body = document.getElementById("gameContainer");
+        body.classList.remove("hidden");
+        var header = document.getElementById("openWindowButton");
+        header.classList.add("gone");
+      }
     
       //
       function ReceiveMessage(pMsg){
         msg = pMsg;
-        if(!ReceiverWindow){
-          console.log("Receiver window undefined");
-          ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
-          console.log("opened new window: " + ReceiverWindow);
-        }else{
-          console.log("Receiver Window already open. Message Posting...")
-            Post();
-        }
+        Post();
       }
     
       function Post(){
         console.log(msg);
-        ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
+        ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
         console.log("Sent message " + msg);
         // document.getElementById("log").innerText = "";
         // document.getElementById("log").innerText = msg;
       }
     </script>
-  </body>
+ 
 </html>

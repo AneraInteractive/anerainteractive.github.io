@@ -31,8 +31,41 @@ header{
     font-size: 40px;
     text-align: center;
     margin: 20px;
+    display: flex;
+    justify-content: center;
 }
 
+#headerTitle{
+     flex-basis: 90%; 
+}
+
+#headerButton{
+    align-self: center;
+}
+
+button, a{
+    background-color: var(--green);
+    border: none;
+    color: var(--textColor);
+    font-family: 'Poppins';
+    border-radius: 8px;
+    font-size: medium;
+    font-style: bold;
+    padding: 20px 40px;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: var(--orange);
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.gone{
+    display:none;
+}
 
 
 div.StartDisplay{
@@ -43,19 +76,9 @@ div.StartDisplay{
 }
 
 #startButton{
-    background-color: var(--green);
-    border: none;
-    color: var(--textColor);
-    font-family: 'Poppins';
-    border-radius: 8px;
-    font-size: 20px;
-    font-style: bold;
-    padding: 20px 40px;
+
     display: inline-block;
     text-align: center;
-    text-decoration: none;
+
 }
 
-#startButton:hover{
-    background-color: var(--orange);
-}

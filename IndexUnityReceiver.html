@@ -1,7 +1,8 @@
 <script>
+  //listens to admin window
   window.addEventListener('message', messageListener, false);
   
-
+//informs admin window that the connection has been established
   function ReceiveMessage(msg){
     console.log("sending message" + msg);
     window.opener.postMessage("done", "https://anerainteractive.github.io/UnityWebGLSender/index.html");
