@@ -68,11 +68,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/UnityWebGLSender.loader.js";
+      var loaderUrl = buildUrl + "/UnityWebGLSender2.loader.js";
       var config = {
-        dataUrl: buildUrl + "/UnityWebGLSender.data",
-        frameworkUrl: buildUrl + "/UnityWebGLSender.framework.js",
-        codeUrl: buildUrl + "/UnityWebGLSender.wasm",
+        dataUrl: buildUrl + "/UnityWebGLSender2.data",
+        frameworkUrl: buildUrl + "/UnityWebGLSender2.framework.js",
+        codeUrl: buildUrl + "/UnityWebGLSender2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Anera Interactive",
         productName: "SustainabilityGame_3D",
@@ -143,7 +143,7 @@
       function OpenReceiverWindow(){
         if(!ReceiverWindow){
           console.log("Receiver window undefined");
-          ReceiverWindow = window.open("https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
+          ReceiverWindow = window.open("http://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
           console.log("opened new window: " + ReceiverWindow);
         }else{
           console.log("Receiver Window already open. Message Posting...")
@@ -162,7 +162,7 @@
     
       function Post(){
         console.log(msg);
-        ReceiverWindow.postMessage(msg, "https://anerainteractive.github.io/UnityWebGLReceiver/index.html");
+        ReceiverWindow.postMessage(msg, "ttp://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
         console.log("Sent message " + msg);
         // document.getElementById("log").innerText = "";
         // document.getElementById("log").innerText = msg;
