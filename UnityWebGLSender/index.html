@@ -143,7 +143,7 @@
       function OpenReceiverWindow(){
         if(!ReceiverWindow){
           console.log("Receiver window undefined");
-          ReceiverWindow = window.open("http://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
+          ReceiverWindow = window.open("http://anerainteractive.github.io/UnityWebGLReceiver/index.html");
           console.log("opened new window: " + ReceiverWindow);
         }else{
           console.log("Receiver Window already open. Message Posting...")
@@ -162,7 +162,7 @@
     
       function Post(){
         console.log(msg);
-        ReceiverWindow.postMessage(msg, "ttp://anerainteractive.github.io/UnityWebGLReceiver2/index.html");
+        ReceiverWindow.postMessage(msg, "http://anerainteractive.github.io/UnityWebGLReceiver/index.html");
         console.log("Sent message " + msg);
         // document.getElementById("log").innerText = "";
         // document.getElementById("log").innerText = msg;
