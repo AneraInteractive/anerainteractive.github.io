@@ -1,0 +1,85 @@
+/* ___________________________________________________________________________________________________________________________________
+                                                           IMPORTS
+ _______________________________________________________________________________________________________________________________________*/
+
+
+ @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+ /* ___________________________________________________________________________________________________________________________________
+                                                            COLORS
+  _______________________________________________________________________________________________________________________________________*/
+ 
+  :root {
+     --green: #2C9331;
+     --bgGrey: #333333;
+     --lightGrey: #595959;
+     --textColor: white;
+     --orange: #FF3E00;
+ }
+ 
+ /* ___________________________________________________________________________________________________________________________________
+                                                            TAGS
+  _______________________________________________________________________________________________________________________________________*/
+ body{
+     background-color: var(--bgGrey);
+     color: var(--textColor);
+     font-family: 'Poppins';
+ }
+ 
+ 
+ header{
+     font-size: 40px;
+     text-align: center;
+     margin: 20px;
+     display: flex;
+     justify-content: center;
+ }
+ 
+ #headerTitle{
+      flex-basis: 90%; 
+ }
+ 
+ #headerButton{
+     align-self: center;
+ }
+ 
+ button{
+     background-color: var(--green);
+     border: none;
+     color: var(--textColor);
+     font-family: 'Poppins';
+     border-radius: 8px;
+     font-size: medium;
+     font-style: bold;
+     padding: 20px 40px;
+     text-decoration: none;
+ }
+ 
+ button:hover{
+     background-color: var(--orange);
+ }
+ 
+ .hidden{
+     visibility: hidden;
+ }
+ 
+ .gone{
+     display:none;
+ }
+ 
+ 
+ div.StartDisplay{
+     display: flex;
+     padding: 20px;
+     background-color: var(--lightGrey);
+     justify-content: center;    
+ }
+ 
+ #startButton{
+ 
+     display: inline-block;
+     text-align: center;
+ 
+ }
+ 
+ 
